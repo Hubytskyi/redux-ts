@@ -1,16 +1,22 @@
-import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import userReducer from './reducers/UserSlice';
+import { combineReducers, configureStore, PreloadedState } from '@reduxjs/toolkit';
+// import userReducer from './reducers/UserSlice';
 import { postAPI } from '../services/PostService';
+import { userAPI } from '../services/UserService';
 
 const rootReducer = combineReducers({
-  userReducer,
+  // userReducer,
   [postAPI.reducerPath]: postAPI.reducer,
+  [userAPI.reducerPath]: userAPI.reducer,
 })
 
-export const setupStore = () => {
+export const setupStore = (preloadedState?: PreloadedState<RootState>) => {
   return configureStore({
     reducer: rootReducer,
-    middleware: (getDefaulrMiddleware) => getDefaulrMiddleware().concat(postAPI.middleware)
+    preloadedState,
+    middleware: (getDefaulrMiddleware) => getDefaulrMiddleware({
+      immutableCheck: false,
+      serializableCheck: false,
+    }).concat([postAPI.middleware, userAPI.middleware])
   })
 }
 

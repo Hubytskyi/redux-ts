@@ -1,16 +1,10 @@
-import React, { useEffect } from 'react';
-import { useAppDispatch, useAppSelector } from '../../store/hooks/redux';
-import { fetchUsers } from '../../store/action-creators/users';
+import React from 'react';
 import UserItem from './User/User';
 import { Box, CircularProgress, Typography } from '@mui/material';
+import { userAPI } from '../../services/UserService';
 
 const Users = () => {
-  const dispatch = useAppDispatch();
-  const { data: users, error, isLoading } = useAppSelector(state => state.userReducer);
-
-  useEffect(() => {
-    dispatch(fetchUsers());
-  }, []);
+  const { data: users, error, isLoading } = userAPI.useFetchAllUsersQuery(10);
 
   return (
     <Box>

@@ -20,7 +20,7 @@ const PostItem = ({post, update, remove}: PostProps) => {
   };
 
   return (
-    <Card sx={{ maxWidth: 345, width: '100%', height: 'auto' }}>
+    <Card sx={{ maxWidth: 345, width: '100%', height: 'auto' }} data-testid={'post-item'}>
       <CardMedia
         component="img"
         height="140"

@@ -11,7 +11,8 @@
     "prettier": "prettier --check --ignore-path .gitignore \"src/**/*.{js,jsx,test.js}\"",
     "test-coverage": "npm run test -- --coverage --watchAll=false",
     "coverage-report": "node ./scripts/open-coverage-report.js",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "precommit": "lint-staged && npm run test"
   },
   "dependencies": {
     "@emotion/react": "^11.10.5",
@@ -41,6 +42,7 @@
     "jest": "^27.5.1",
     "lint-staged": "^13.0.3",
     "msw": "^0.48.3",
+    "pre-commit": "^1.2.2",
     "prettier": "2.7.1"
   },
   "eslintConfig": {
@@ -63,5 +65,9 @@
   },
   "lint-staged": {
     "**/*": "prettier --write --ignore-unknown"
+  },
+  "pre-commit": {
+    "silent": true,
+    "colors": true
   }
 }

@@ -1,9 +1,9 @@
 import '@testing-library/jest-dom';
 import { server } from './mocks/api/server';
-import { setupStore } from './store/store';
+// import { setupStore } from './store/store';
 // import { apiSlice } from './app/api/apiSlice'
 
-const store = setupStore({});
+// const store = setupStore({});
 
 // Establish API mocking before all tests.
 beforeAll(() => {

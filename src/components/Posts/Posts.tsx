@@ -7,7 +7,7 @@ import { Post } from '../../interfaces/post.interface';
 
 const Posts = () => {
   const { data: posts, isLoading, error } = postAPI.useFetchAllPostsQuery(20);
-  const [createPost, {isLoading: isCreateLoading}] = postAPI.useCreatePostMutation();
+  const [createPost, { isLoading: isCreateLoading }] = postAPI.useCreatePostMutation();
   const [updatePost] = postAPI.useUpdatePostMutation();
   const [deletePost] = postAPI.useDeletePostMutation();
 
@@ -17,39 +17,43 @@ const Posts = () => {
   };
 
   const handleUpdate = async (post: Post) => {
-    await updatePost(post)
+    await updatePost(post);
   };
 
   const handleDelete = async (post: Post) => {
-    await deletePost(post)
+    await deletePost(post);
   };
 
   return (
     <Box>
       <h1>Posts</h1>
       <Box>
-        {isLoading && <CircularProgress/>}
+        {isLoading && <CircularProgress />}
 
         {error && <Typography>Something went wrong...</Typography>}
 
-        <Button variant="contained" color={'primary'} sx={{ m: 1 }} disabled={isCreateLoading} onClick={handleCreate} endIcon={
-          isCreateLoading
-            ? <CircularProgress size={'18px'}/>
-            : <SendIcon />
-        }>
+        <Button
+          variant="contained"
+          color={'primary'}
+          sx={{ m: 1 }}
+          disabled={isCreateLoading}
+          onClick={handleCreate}
+          endIcon={isCreateLoading ? <CircularProgress size={'18px'} /> : <SendIcon />}
+        >
           Create Post
         </Button>
 
-        <Box sx={{
-          display: 'flex',
-          flexWrap: 'wrap',
-          '& > :not(style)': {
-            m: 1,
-          },
-        }}>
-          {!!posts && posts.map(post => (
-            <PostItem post={post} key={post.id} update={handleUpdate} remove={handleDelete}/>
-          ))}
+        <Box
+          sx={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            '& > :not(style)': {
+              m: 1,
+            },
+          }}
+        >
+          {!!posts &&
+            posts.map((post) => <PostItem post={post} key={post.id} update={handleUpdate} remove={handleDelete} />)}
         </Box>
       </Box>
     </Box>

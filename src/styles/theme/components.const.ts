@@ -85,7 +85,7 @@ const components = {
           backgroundColor: alpha(paletteLight.grey['400'], 0.3),
         },
       },
-    }
+    },
   },
 
   // MuiInputLabel: {

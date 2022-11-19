@@ -6,11 +6,9 @@ import { Box, Container } from '@mui/material';
 const Layout = ({ children }: LayoutProps) => {
   return (
     <Box>
-      <Nav/>
-      <Box sx={{pt: 10}}>
-        <Container maxWidth={'xl'}>
-          {children}
-        </Container>
+      <Nav />
+      <Box sx={{ pt: 10 }}>
+        <Container maxWidth={'xl'}>{children}</Container>
       </Box>
     </Box>
   );

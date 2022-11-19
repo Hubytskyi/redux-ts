@@ -9,7 +9,7 @@ const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <Layout>
-        <AppRoutes/>
+        <AppRoutes />
       </Layout>
     </ThemeProvider>
   );

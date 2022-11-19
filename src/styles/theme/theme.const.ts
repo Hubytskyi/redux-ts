@@ -1,4 +1,4 @@
-import { createTheme } from '@mui/material/styles'
+import { createTheme } from '@mui/material/styles';
 import BREAKPOINTS from './breakpoints.const';
 import palleteLight from './palette-light.const';
 import typography from './typography.const';
@@ -13,7 +13,7 @@ const theme = createTheme({
       md: BREAKPOINTS.md,
       lg: BREAKPOINTS.lg,
       xl: BREAKPOINTS.xl,
-    }
+    },
   },
 
   palette: palleteLight,

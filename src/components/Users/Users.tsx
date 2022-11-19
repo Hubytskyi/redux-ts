@@ -9,18 +9,18 @@ const Users = () => {
   return (
     <Box>
       <h1>Users</h1>
-      <Box sx={{
-        display: 'flex',
-        flexWrap: 'wrap',
-        '& > :not(style)': {
-          m: 1,
-        },
-      }}>
-        {isLoading && <CircularProgress/>}
+      <Box
+        sx={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          '& > :not(style)': {
+            m: 1,
+          },
+        }}
+      >
+        {isLoading && <CircularProgress />}
         {error && <Typography>Something went wrong...</Typography>}
-        {!!users && users.map(user => (
-          <UserItem {...user} />
-        ))}
+        {!!users && users.map((user) => <UserItem {...user} />)}
       </Box>
     </Box>
   );

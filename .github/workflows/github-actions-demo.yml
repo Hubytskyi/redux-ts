@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [ 18.x ]
+        node-version: [18.x]
     steps:
       - uses: actions/checkout@v3
 
@@ -21,3 +21,5 @@ jobs:
         run: npm run build
       - name: tests
         run: npm run test
+      - name: prettier
+        run: npx prettier --check .

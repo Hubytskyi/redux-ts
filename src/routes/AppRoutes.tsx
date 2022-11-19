@@ -7,9 +7,9 @@ import Posts from '../components/Posts/Posts';
 const AppRoutes = () => {
   return (
     <Routes>
-      <Route path="/" element={<Home/>}/>
-      <Route path="/users" element={<Users/>}/>
-      <Route path="/posts" element={<Posts/>}/>
+      <Route path="/" element={<Home />} />
+      <Route path="/users" element={<Users />} />
+      <Route path="/posts" element={<Posts />} />
     </Routes>
   );
 };

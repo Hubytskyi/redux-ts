@@ -7,16 +7,15 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
-const PostItem = ({post, update, remove}: PostProps) => {
-
+const PostItem = ({ post, update, remove }: PostProps) => {
   const handleUpdate = async (event: React.MouseEvent) => {
     const title = prompt() || '';
-    update({...post, title})
+    update({ ...post, title });
   };
 
   const handleDelete = async (event: React.MouseEvent) => {
     event.stopPropagation();
-    remove(post)
+    remove(post);
   };
 
   return (
@@ -36,8 +35,12 @@ const PostItem = ({post, update, remove}: PostProps) => {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small" onClick={handleUpdate}>Update</Button>
-        <Button size="small" onClick={handleDelete}>Remove</Button>
+        <Button size="small" onClick={handleUpdate}>
+          Update
+        </Button>
+        <Button size="small" onClick={handleDelete}>
+          Remove
+        </Button>
       </CardActions>
     </Card>
   );

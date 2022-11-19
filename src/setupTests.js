@@ -1,5 +1,5 @@
 import '@testing-library/jest-dom';
-import { server } from './mocks/api/server'
+import { server } from './mocks/api/server';
 import { setupStore } from './store/store';
 // import { apiSlice } from './app/api/apiSlice'
 

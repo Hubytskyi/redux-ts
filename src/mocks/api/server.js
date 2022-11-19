@@ -4,10 +4,8 @@ Need to pass in setupServer() all handlers that will be used for mocking
 */
 
 import { setupServer } from 'msw/node';
-import { userHandler } from "./handlers/usersHandler";
+import { userHandler } from './handlers/usersHandler';
 
-const handlers = [
-  ...userHandler,
-];
+const handlers = [...userHandler];
 
 export const server = setupServer(...handlers);

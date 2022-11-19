@@ -4,7 +4,7 @@ import Users from '../components/Users/Users';
 
 describe('Users', () => {
   test('count of users', async () => {
-    renderWithProviders(<Users/>);
+    renderWithProviders(<Users />);
     const users = await screen.findAllByTestId('user-item');
     expect(users.length).toBe(2);
   });

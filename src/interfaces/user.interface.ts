@@ -6,4 +6,4 @@ export interface User {
   email: string;
 }
 
-export type UserState = State<User>
+export type UserState = State<User>;

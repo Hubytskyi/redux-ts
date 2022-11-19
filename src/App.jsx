@@ -10,6 +10,7 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <Layout>
         <AppRoutes />
+        <div>test</div>
       </Layout>
     </ThemeProvider>
   );

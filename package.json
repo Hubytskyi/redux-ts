@@ -64,7 +64,9 @@
     ]
   },
   "lint-staged": {
-    "**/*": "prettier --write --ignore-unknown"
+    "src/**/*.{js,jsx,test.js}": [
+      "prettier --write"
+    ]
   },
   "pre-commit": [
     "precommit"

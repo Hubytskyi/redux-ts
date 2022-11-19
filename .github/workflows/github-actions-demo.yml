@@ -21,5 +21,3 @@ jobs:
         run: npm run build
       - name: tests
         run: npm run test
-      - name: prettier
-        run: npm run prettier

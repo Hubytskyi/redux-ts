@@ -5,19 +5,19 @@ import { setupListeners } from '@reduxjs/toolkit/dist/query';
 import { setupStore } from '../../store/store';
 
 export function renderWithProviders(
-	ui,
-	{
-		preloadedState = {},
-		// Automatically create a store instance if no store was passed in
-		store = setupStore(preloadedState),
-		...renderOptions
-	} = {}
+  ui,
+  {
+    preloadedState = {},
+    // Automatically create a store instance if no store was passed in
+    store = setupStore(preloadedState),
+    ...renderOptions
+  } = {}
 ) {
-	setupListeners(store.dispatch);
+  setupListeners(store.dispatch);
 
-	function Wrapper({ children }) {
-		return <Provider store={store}>{children}</Provider>;
-	}
+  function Wrapper({ children }) {
+    return <Provider store={store}>{children}</Provider>;
+  }
 
-	return { store, ...render(ui, { wrapper: Wrapper, ...renderOptions }) };
+  return { store, ...render(ui, { wrapper: Wrapper, ...renderOptions }) };
 }

@@ -8,8 +8,8 @@
     "test": "react-scripts test",
     "style:all": "tsc && npm run style:lint && npm run style:prettier",
     "style:lint": "eslint 'src/**/*.{js,jsx,test.js}'",
-    "style:lint:fix": "eslint --fix 'src/**/*.{js,jsx,test.js}'",
     "style:prettier": "prettier --check 'src/**/*.{js,jsx,test.js}'",
+    "make-lint": "prettier-eslint 'src/**/*.{js,jsx,test.js}' --write",
     "make-pretty": "prettier --write 'src/**/*.{js,jsx,test.js}'",
     "test-coverage": "npm run test -- --coverage --watchAll=false",
     "coverage-report": "node ./scripts/open-coverage-report.js",
@@ -82,12 +82,16 @@
       "last 1 safari version"
     ]
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "lint-staged": {
     "src/**/*.{js,jsx,test.js}": [
-      "prettier --write"
+      "npm run make-lint",
+      "npm run make-pretty",
+      "gid add"
     ]
-  },
-  "pre-commit": [
-    "precommit"
-  ]
+  }
 }

@@ -6,7 +6,7 @@ import PostItem from './Post/Post';
 import { Post } from '../../interfaces/post.interface';
 
 const Posts = () => {
-  const { data: posts, isLoading, error } = postAPI.useFetchAllPostsQuery(20);
+  const { data, isLoading, error } = postAPI.useFetchAllPostsQuery(20);
   const [createPost, { isLoading: isCreateLoading }] = postAPI.useCreatePostMutation();
   const [updatePost] = postAPI.useUpdatePostMutation();
   const [deletePost] = postAPI.useDeletePostMutation();
@@ -52,8 +52,8 @@ const Posts = () => {
             },
           }}
         >
-          {!!posts &&
-            posts.map((post) => <PostItem post={post} key={post.id} update={handleUpdate} remove={handleDelete} />)}
+          {!!data &&
+            data.map((post) => <PostItem post={post} key={post.id} update={handleUpdate} remove={handleDelete} />)}
         </Box>
       </Box>
     </Box>

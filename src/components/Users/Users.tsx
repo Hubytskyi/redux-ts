@@ -4,7 +4,7 @@ import { Box, CircularProgress, Typography } from '@mui/material';
 import { userAPI } from '../../services/UserService';
 
 const Users = () => {
-  const { data: users, error, isLoading } = userAPI.useFetchAllUsersQuery(10);
+  const { data, error, isLoading } = userAPI.useFetchAllUsersQuery(10);
 
   return (
     <Box>
@@ -20,7 +20,7 @@ const Users = () => {
       >
         {isLoading && <CircularProgress />}
         {error && <Typography>Something went wrong...</Typography>}
-        {!!users && users.map((user) => <UserItem {...user} key={user.id}/>)}
+        {!!data && data.map((user) => <UserItem {...user} key={user.id}/>)}
       </Box>
     </Box>
   );

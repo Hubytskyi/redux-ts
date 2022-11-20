@@ -1,10 +1,9 @@
-import { combineReducers, configureStore, PreloadedState } from '@reduxjs/toolkit';
-// import userReducer from './reducers/UserSlice';
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import type { PreloadedState } from '@reduxjs/toolkit';
 import { postAPI } from '../services/PostService';
 import { userAPI } from '../services/UserService';
 
 const rootReducer = combineReducers({
-  // userReducer,
   [postAPI.reducerPath]: postAPI.reducer,
   [userAPI.reducerPath]: userAPI.reducer,
 });

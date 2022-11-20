@@ -14,11 +14,12 @@ module.exports = {
   rules: {
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
     allowComputed: 'off',
-    indent: ['error', 'tab'],
+    indent: 'off',
     'react/no-danger': 'off',
     'no-console': 'error',
     'prettier/prettier': 'off',
     quotes: ['error', 'single'],
     semi: ['error', 'always'],
+    "no-unused-vars": ["warn", { "vars": "all", "args": "after-used", "ignoreRestSiblings": false }]
   },
 };

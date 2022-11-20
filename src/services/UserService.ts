@@ -15,7 +15,7 @@ export const userAPI = createApi({
           _limit: limit,
         },
       }),
-      providesTags: (result) => ['User'],
+      providesTags: () => ['User'],
     }),
   }),
 });

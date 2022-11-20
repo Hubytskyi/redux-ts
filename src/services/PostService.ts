@@ -15,7 +15,7 @@ export const postAPI = createApi({
           _limit: limit,
         },
       }),
-      providesTags: (result) => ['Post'],
+      providesTags: () => ['Post'],
     }),
     createPost: builder.mutation<Post, Post>({
       query: (post) => ({

@@ -8,7 +8,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
 const PostItem = ({ post, update, remove }: PostProps) => {
-  const handleUpdate = async (event: React.MouseEvent) => {
+  const handleUpdate = async () => {
     const title = prompt() || '';
     update({ ...post, title });
   };

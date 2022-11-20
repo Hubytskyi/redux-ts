@@ -7,7 +7,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
-const UserItem = ({ id, name, email }: User) => {
+const UserItem = ({ id, name }: User) => {
   return (
     <Card sx={{ maxWidth: 345, width: '100%', height: 'auto' }} data-testid={'user-item'}>
       <CardMedia

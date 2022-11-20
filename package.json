@@ -6,9 +6,11 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "prettier:write": "prettier --write --ignore-path .gitignore \"src/**/*.{js,jsx,test.js}\"",
-    "prettier": "prettier --check --ignore-path .gitignore \"src/**/*.{js,jsx,test.js}\"",
+    "style:all": "tsc && npm run style:lint && npm run style:prettier",
+    "style:lint": "eslint 'src/**/*.{js,jsx,test.js}'",
+    "style:prettier": "prettier --check 'src/**/*.{js,jsx,test.js}'",
+    "make-lint": "prettier-eslint 'src/**/*.{js,jsx,test.js}' --write",
+    "make-pretty": "prettier --write 'src/**/*.{js,jsx,test.js}'",
     "test-coverage": "npm run test -- --coverage --watchAll=false",
     "coverage-report": "node ./scripts/open-coverage-report.js",
     "prepare": "husky install",
@@ -29,21 +31,38 @@
     "@types/react-dom": "^18.0.8",
     "@types/react-redux": "^7.1.24",
     "axios": "^1.1.3",
+    "msw": "^0.49.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.4.3",
     "react-scripts": "5.0.1",
-    "typescript": "^4.8.4",
     "web-vitals": "^2.1.4"
   },
   "devDependencies": {
+    "@babel/core": "^7.20.2",
+    "@typescript-eslint/eslint-plugin": "^5.43.0",
+    "@typescript-eslint/parser": "^5.43.0",
+    "babel-eslint": "^10.1.0",
+    "babel-plugin-module-resolver": "^4.1.0",
+    "eslint": "^8.28.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-typescript": "^17.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-import-resolver-babel-module": "^5.3.1",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx-a11y": "^6.6.1",
+    "eslint-plugin-n": "^15.5.1",
+    "eslint-plugin-only-warn": "^1.0.3",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-react": "^7.31.11",
     "husky": "^8.0.2",
     "jest": "^27.5.1",
     "lint-staged": "^13.0.3",
-    "msw": "^0.48.3",
     "pre-commit": "^1.2.2",
-    "prettier": "2.7.1"
+    "prettier": "2.7.1",
+    "typescript": "^4.8.2"
   },
   "eslintConfig": {
     "extends": [
@@ -63,10 +82,16 @@
       "last 1 safari version"
     ]
   },
-  "lint-staged": {
-    "**/*": "prettier --write --ignore-unknown"
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
-  "pre-commit": [
-    "precommit"
-  ]
+  "lint-staged": {
+    "src/**/*.{js,jsx,test.js}": [
+      "npm run make-lint",
+      "npm run make-pretty",
+      "gid add"
+    ]
+  }
 }

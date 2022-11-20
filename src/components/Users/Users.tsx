@@ -20,7 +20,7 @@ const Users = () => {
       >
         {isLoading && <CircularProgress />}
         {error && <Typography>Something went wrong...</Typography>}
-        {!!users && users.map((user) => <UserItem {...user} />)}
+        {!!users && users.map((user) => <UserItem {...user} key={user.id}/>)}
       </Box>
     </Box>
   );

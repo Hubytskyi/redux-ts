@@ -1,4 +1,4 @@
-name: GitHub Actions Demo
+name: Build
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: [push]
 jobs:
@@ -9,6 +9,9 @@ jobs:
         node-version: [16.15.x]
     steps:
       - uses: actions/checkout@v3
+      - uses: stefanoeb/eslint-action@1.0.2
+        with:
+          files: src/
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3

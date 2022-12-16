@@ -6,7 +6,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "style:all": "tsc && npm run style:lint && npm run style:prettier",
+    "style:all": "tsc && npm run style:lint && npm run style:prettier && npm run build",
     "style:lint": "eslint 'src/**/*.{js,jsx,test.js}'",
     "style:prettier": "prettier --check 'src/**/*.{js,jsx,test.js}'",
     "make-lint": "eslint --fix 'src/**/*.{js,jsx,test.js}'",

@@ -10,7 +10,7 @@ module.exports = {
     sourceType: 'module',
     project: ['./tsconfig.json'],
   },
-  plugins: ['react', '@typescript-eslint'],
+  plugins: ['react', 'react-hooks', '@typescript-eslint'],
   rules: {
     'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.ts', '.tsx'] }],
     allowComputed: 'off',
@@ -20,6 +20,8 @@ module.exports = {
     'prettier/prettier': 'off',
     quotes: ['error', 'single'],
     semi: ['error', 'always'],
+    'react-hooks/exhaustive-deps': 'warn',
+    'newline-before-return': 'warn',
     'no-unused-vars': ['warn', { vars: 'all', args: 'after-used', ignoreRestSiblings: false }],
   },
 };

@@ -5,14 +5,12 @@ import AppRoutes from './routes/AppRoutes';
 import './App.css';
 import theme from './styles/theme/theme.const';
 
-const App = () => {
-  return (
-    <ThemeProvider theme={theme}>
-      <Layout>
-        <AppRoutes />
-      </Layout>
-    </ThemeProvider>
-  );
-};
+const App = () => (
+  <ThemeProvider theme={theme}>
+    <Layout>
+      <AppRoutes />
+    </Layout>
+  </ThemeProvider>
+);
 
 export default App;
